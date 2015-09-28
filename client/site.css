@@ -1,0 +1,19 @@
+body{
+    font-family: 'Andada', serif;
+}
+
+.section{
+    margin-bottom: 10px;
+}
+
+.section .checkbox{
+    font-size: larger;
+}
+
+.header-form, .subheader-form, .header-list{
+    text-transform: uppercase;
+}
+
+.subheader-form{
+    color: gray;
+}
