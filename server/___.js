@@ -3,6 +3,9 @@ if(Meteor.isServer){
     var embedKey = Meteor.settings.private.EmbedlyApiKey || null;
     //var qs = Npm.require('querystring');
     Meteor.methods({
+        Create_User : function(){
+
+        },
         Embedly_Extract : function(url){
             if(Match.test(embedKey,String)){
                 var query = {

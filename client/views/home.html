@@ -41,9 +41,9 @@
                     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-link"></i></span>
                     <input type="text" class="form-control"
                            placeholder="Link movie on Pornhub, Xvideos, Tube8, RedTube...Ex, http://www.pornhub.com/view_video.php?viewkey=1523191611"
-                           aria-describedby="sizing-addon2" id="txtMovieUrl">
+                           aria-describedby="sizing-addon2" data-bind="value : movieUrl, returnKey : addMovie">
                     <span class="input-group-btn">
-                        <button id="btnAddMovieToList" class="btn btn-success" type="button"><i class="fa fa-plus-square"></i></button>
+                        <button class="btn btn-success" type="button" data-bind="click : addMovie"><i class="fa fa-plus-square"></i></button>
                     </span>
                 </div>
 

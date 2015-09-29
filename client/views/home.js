@@ -1,17 +1,13 @@
-Template.home.events({
-    'click #btnAddMovieToList' : function(e,t){
-        e.preventDefault();
-        addMovie();
-    },
+Template.home.onCreated(function(){
+    this.subscribe('movies');
+})
 
-    'keyup #txtMovieUrl' : function(e,t){
-        e.preventDefault();
-        if(e.keyCode === 13){
-            addMovie();
+Template.home.viewmodel({
+    movieUrl : '',
+    showLoading : false,
+    addMovie : function(){
+        if(is.url(this.movieUrl())){
+            console.log('Success');
         }
     }
-});
-
-var addMovie = function(){
-    console.info('Movie added!')
-}
+})

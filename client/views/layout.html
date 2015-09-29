@@ -1,3 +1,14 @@
 <template name="defaultLayout">
     {{> Template.dynamic template=main}}
 </template>
+
+<template name="loading">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!--<img src="loading.gif" alt="loading..." class="img-responsive center-block"/>-->
+                <h3 class="text-center" data-bind="text : ipAddress">Loading....</h3>
+            </div>
+        </div>
+    </div>
+</template>
