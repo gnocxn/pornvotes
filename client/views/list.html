@@ -1,7 +1,26 @@
 <template name="list">
-    <div class="row">
-        <div class="col-md-12">
-            <span data-bind="text: userId"></span>
+    <span data-bind="text : userId">1</span>
+    <ul class="list-group">
+
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</template>
+
+<template name="vote">
+    <li class="list-group-item">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="..." alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                ...
+            </div>
         </div>
-    </div>
+    </li>
 </template>
