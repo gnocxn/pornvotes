@@ -17,3 +17,145 @@ body{
 .subheader-form{
     color: gray;
 }
+
+tr.vote-row{
+    margin-bottom: 10px !important;
+}
+
+.vote-thumb{
+    width: 100px !important;
+}
+
+.vote-body{
+    width: auto;
+}
+
+.vote-button{
+    width: 60px !important;
+}
+
+ol.videoList {
+    list-style: outside none none;
+    margin: 0;
+    padding-left: 0;
+    margin-top: 15px;
+    height : 792px;
+    overflow-y: auto;
+}
+
+ol.videoList > li.videoListEntry {
+    width: 100%;
+}
+
+ol.videoList > li.videoListEntry .header {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    border-image: none;
+    border-radius: 4px 4px 0 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    padding: 4px 5px;
+    position: relative;
+}
+
+ol.videoList > li.videoListEntry .header:before, ol.videoList > li.videoListEntry .header:after {
+    content: " ";
+    display: table;
+}
+ol.videoList > li.videoListEntry .header h5 {
+    margin: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+}
+ol.videoList > li.videoListEntry .content {
+    border: 1px solid #ccc;
+    border-radius: 0 0 4px 4px;
+    display: table;
+    margin-bottom: 5px;
+    padding: 5px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.thumbnailContainer {
+    display: block;
+    height: 112px;
+    width: 200px;
+}
+
+.thumbnailContainer .thumbnailClip {
+    display: inline-block;
+    height: 112px;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+}
+
+.thumbnailContainer.aspectFourByThreeLetterboxed .thumbnailClip img {
+    top: -19px;
+    width: 100%;
+}
+.thumbnailContainer .thumbnailClip img {
+    display: block;
+    left: 0;
+    position: absolute;
+}
+
+.thumbnailContainer .thumbnailClip .thumbnail-info {
+    background-color: #000;
+    bottom: 2px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.75;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    right: 2px;
+}
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(1) {
+    width: 200px;
+}
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(2) {
+    padding: 0 5px;
+}
+
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(2) p {
+    height: 100px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(2) {
+    width: auto;
+}
+
+ol.videoList > li.videoListEntry .content > .list-container {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+}
+
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(3) {
+    width: 100px;
+}
+
+ol.videoList > li.videoListEntry .content > .list-container {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+ol.videoList > li.videoListEntry .header .btn-remove-playlist-item {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}

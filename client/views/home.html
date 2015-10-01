@@ -43,7 +43,7 @@
                            placeholder=""
                            aria-describedby="sizing-addon2" data-bind="value : voteUrl, returnKey : addVoteItem">
                     <span class="input-group-btn">
-                        <button class="btn btn-success" type="button" data-bind="click : addVoteItem"><i class="fa fa-plus-square"></i></button>
+                        <button class="btn btn-success" type="button" data-bind="click : addVoteItem"><i class="fa fa-plus-square" data-bind="class : buttonIconClass"></i></button>
                     </span>
                 </div>
                 <span data-bind="visible : showLoading">Please wait...</span>
@@ -51,9 +51,7 @@
         </div>
         <div class="row section">
             <div class="col-md-8 col-md-offset-2">
-                {{#with userId}}
-                    {{> list data=this}}
-                {{/with}}
+                {{> list}}
             </div>
         </div>
     </div>

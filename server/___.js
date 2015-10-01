@@ -43,10 +43,18 @@ if(Meteor.isServer){
                 return true;
             }
             return false;
+        },
+        RemoveVote : function(id){
+            check(id, String);
+            Votes.remove({_id : id});
         }
     });
 
     Meteor.publish('votesByUser',function(userId){
-        return Votes.find({userId : userId},{sort : {upVote : 1, downVote : 1}});
+        return Votes.find({userId : userId});
+    });
+
+    Meteor.publish('peopleById',function(userId){
+        return People.find({_id : userId});
     })
 }

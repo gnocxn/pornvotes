@@ -1,25 +1,42 @@
 <template name="list">
-    <span data-bind="text : userId">1</span>
-    <ul class="list-group">
-
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+{{#if votes}}
+    <ol class="videoList">
+        {{#each votes}}
+            {{> vote}}
+        {{/each}}
+    </ol>
+{{/if}}
 </template>
 
 <template name="vote">
-    <li class="list-group-item">
-        <div class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object" src="..." alt="...">
-                </a>
+    <li class="videoListEntry">
+        <div class="header">
+            <h5><i class="fa fa-paperclip"></i>&nbsp;<span data-bind="text : vote.title"></span></h5>
+            <button class="btn btn-default btn-xs btn-remove-playlist-item" data-bind="click : removeItem">
+                <i class="fa fa-remove"></i>
+            </button>
+        </div>
+        <div class="content">
+            <div class="list-container">
+                <div class="thumbnailContainer aspectFourByThreeLetterboxed">
+                    <div class="thumbnailClip">
+                        <img data-bind="attr : {src : thumb}">
+                    </div>
+                </div>
             </div>
-            <div class="media-body">
-                <h4 class="media-heading">Media heading</h4>
-                ...
+            <div class="list-container">
+                <p></p>
+            </div>
+            <div class="list-container text-center">
+                <div class="btn-group-vertical" role="group" aria-label="...">
+                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="">
+                        <i class="fa fa-arrow-down"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="">
+                        <i class="fa fa-arrow-up"></i>
+                    </button>
+                </div>
+
             </div>
         </div>
     </li>
