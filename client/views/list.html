@@ -29,11 +29,14 @@
             </div>
             <div class="list-container text-center">
                 <div class="btn-group-vertical" role="group" aria-label="...">
-                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="">
-                        <i class="fa fa-arrow-down"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="">
+                    <button type="button" class="btn btn-danger" data-bind="click : upItem">
                         <i class="fa fa-arrow-up"></i>
+                    </button>
+                    <span class="upVote" data-bind="text : upVote"></span>
+                    <span>/</span>
+                    <span class="downVote" data-bind="text : downVote"></span>
+                    <button type="button" class="btn btn-danger" data-bind="click : downItem">
+                        <i class="fa fa-arrow-down"></i>
                     </button>
                 </div>
 

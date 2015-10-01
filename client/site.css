@@ -18,22 +18,6 @@ body{
     color: gray;
 }
 
-tr.vote-row{
-    margin-bottom: 10px !important;
-}
-
-.vote-thumb{
-    width: 100px !important;
-}
-
-.vote-body{
-    width: auto;
-}
-
-.vote-button{
-    width: 60px !important;
-}
-
 ol.videoList {
     list-style: outside none none;
     margin: 0;
@@ -148,6 +132,11 @@ ol.videoList > li.videoListEntry .content > .list-container:nth-child(3) {
     width: 100px;
 }
 
+ol.videoList > li.videoListEntry .content > .list-container:nth-child(3) span{
+    font-size: 24px;
+    font-weight: 600;
+}
+
 ol.videoList > li.videoListEntry .content > .list-container {
     display: table-cell;
     height: 100%;
@@ -158,4 +147,12 @@ ol.videoList > li.videoListEntry .header .btn-remove-playlist-item {
     position: absolute;
     right: 4px;
     top: 4px;
+}
+
+.upVote{
+    color: green;
+}
+
+.downVote{
+    color: darkred;
 }

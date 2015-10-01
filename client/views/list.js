@@ -3,7 +3,7 @@ Template.list.viewmodel({
         return this.parent().userId();
     },
     votes : function(){
-        return Votes.find({userId : this.userId()},{sort : {updatedAt : -1, voteUp : 1, voteDown : 1}});
+        return Votes.find({userId : this.userId()},{sort : {bestScore : -1, badScore : 1}});
     },
     autorun : function(c){
         this.templateInstance.subscribe('votesByUser', this.userId());
@@ -22,6 +22,14 @@ Template.vote.viewmodel(function(data){
         },
         removeItem : function(){
             Meteor.call('RemoveVote',this.vote()._id);
+        },
+        upItem : function(){
+            console.info('UP VOTE!')
+            Meteor.call('updateVote', this.vote()._id, 'UP');
+        },
+        downItem : function(){
+            console.warn('DOWN VOTE!');
+            Meteor.call('updateVote', this.vote()._id, 'DOWN');
         }
     }
 })
