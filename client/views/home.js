@@ -14,9 +14,8 @@ Template.home.viewmodel({
             this.buttonIconClass('fa fa-spinner fa-pulse');
             var self = this;
             var userId = Meteor.cookie.get('pv_userId');
-            Meteor.call('AddVote', this.voteUrl(), userId,function(err, rs){
+            Meteor.call('AddThingAndCreateVote', this.voteUrl(), userId,function(err, rs){
                 if(err) console.error(err);
-                //self.showLoading(false);
                 self.buttonIconClass('fa fa-plus-square');
                 self.voteUrl('');
             })

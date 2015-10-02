@@ -23,8 +23,6 @@ ol.videoList {
     margin: 0;
     padding-left: 0;
     margin-top: 15px;
-    height : 792px;
-    overflow-y: auto;
 }
 
 ol.videoList > li.videoListEntry {
@@ -148,6 +146,11 @@ ol.videoList > li.videoListEntry .header .btn-remove-playlist-item {
     right: 4px;
     top: 4px;
 }
+ol.videoList > li.videoListEntry .header .btn-edit-playlist-item {
+    position: absolute;
+    right: 30px;
+    top: 4px;
+}
 
 .upVote{
     color: green;
@@ -155,4 +158,22 @@ ol.videoList > li.videoListEntry .header .btn-remove-playlist-item {
 
 .downVote{
     color: darkred;
+}
+ul.image_picker_selector{
+    white-space:nowrap;
+    overflow-y: scroll;
+    height: 180px !important;
+    padding: 0px;
+    margin: 0px;
+}
+ul.image_picker_selector li {
+    display:inline;
+}
+
+ul.image_picker_selector li img{
+    width: 175px !important;
+}
+
+ul.image_picker_selector li img:hover, img.selected{
+    border: darkgreen double;
 }

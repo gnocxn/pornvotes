@@ -1,17 +1,20 @@
 <template name="list">
-{{#if votes}}
-    <ol class="videoList">
-        {{#each votes}}
-            {{> vote}}
-        {{/each}}
-    </ol>
-{{/if}}
+    {{#if votes}}
+        <ol class="videoList">
+            {{#each votes}}
+                {{> vote}}
+            {{/each}}
+        </ol>
+    {{/if}}
 </template>
 
 <template name="vote">
     <li class="videoListEntry">
         <div class="header">
-            <h5><i class="fa fa-paperclip"></i>&nbsp;<span data-bind="text : vote.title"></span></h5>
+            <h5><span data-bind="text : vote.thing.title"></span></h5>
+            <button class="btn btn-default btn-xs btn-edit-playlist-item" data-bind="click : showModal">
+                <i class="fa fa-pencil"></i>
+            </button>
             <button class="btn btn-default btn-xs btn-remove-playlist-item" data-bind="click : removeItem">
                 <i class="fa fa-remove"></i>
             </button>
@@ -25,16 +28,16 @@
                 </div>
             </div>
             <div class="list-container">
-                <p></p>
+                <p data-bind="text : vote.thing.description"></p>
             </div>
             <div class="list-container text-center">
                 <div class="btn-group-vertical" role="group" aria-label="...">
-                    <button type="button" class="btn btn-danger" data-bind="click : upItem">
+                    <button type="button" class="btn btn-success" data-bind="click : upItem">
                         <i class="fa fa-arrow-up"></i>
                     </button>
-                    <span class="upVote" data-bind="text : upVote"></span>
+                    <span class="upVote" data-bind="text : vote.upVote"></span>
                     <span>/</span>
-                    <span class="downVote" data-bind="text : downVote"></span>
+                    <span class="downVote" data-bind="text : vote.downVote"></span>
                     <button type="button" class="btn btn-danger" data-bind="click : downItem">
                         <i class="fa fa-arrow-down"></i>
                     </button>
@@ -42,5 +45,56 @@
 
             </div>
         </div>
+    </li>
+</template>
+
+<template name="editVote">
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Edit Vote
+                </div>
+                <!-- dialog body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Title</label>
+                                <input type="text" class="form-control" placeholder="Title" data-bind="value : title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Description</label>
+                                <textarea class="form-control" rows="5" data-bind="text : description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span data-bind="text : selectedImage"></span>
+                            {{#if images}}
+                            <ul class="image_picker_selector">
+                                {{#each images}}
+                                    {{> editVote_chooseImage}}
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                <!-- dialog buttons -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bind="click : saveVote">Save</button>&nbsp;
+                    <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="editVote_chooseImage">
+    <li>
+        <img data-bind="attr : {src : src}, click : select, class : isSelected" alt="thumbnail"/>
     </li>
 </template>
