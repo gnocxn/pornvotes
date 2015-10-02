@@ -66,13 +66,12 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Description</label>
-                                <textarea class="form-control" rows="5" data-bind="text : description"></textarea>
+                                <textarea class="form-control" rows="5" data-bind="value : description"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <span data-bind="text : selectedImage"></span>
                             {{#if images}}
                             <ul class="image_picker_selector">
                                 {{#each images}}

@@ -34,10 +34,15 @@ Template.vote.viewmodel(function (data) {
                 "keyboard": true,
                 "show": true,                     // ensure the modal is shown immediately
             });
+            var self = this;
+            $('#myModal').on('hidden.bs.modal',function(e){
+                self.closeModal();
+            })
         },
         closeModal: function () {
             if (this.modalInstance()) {
                 Blaze.remove(this.modalInstance());
+                this.modalInstance(null);
             }
         },
         upItem: function () {
@@ -55,11 +60,11 @@ Template.vote.viewmodel(function (data) {
 });
 
 Template.editVote.viewmodel(function (data) {
-    console.log(Template.instance())
     return {
         title: data.thing().title,
         description: data.thing().description || '',
         images: function () {
+            if(data.chooseImage) this.selectedImage(data.chooseImage);
             var images = _.map(data.thing().images, function (i) {
                     return i.url;
                 }),
