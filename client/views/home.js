@@ -21,7 +21,19 @@ Template.home.viewmodel({
             })
         }
     },
+    screenshot : null,
+    takeScreenshot : function(){
+        var slt = 'ol.videoList';
+        var sc = new RxScreenshot(this.templateInstance,slt, null, 750);
+        this.screenshot(sc);
+    },
     userId : function(){
         return Meteor.cookie.get('pv_userId');
+    },
+    autorun : function(c){
+        if(this.screenshot() && this.screenshot().ready()){
+            console.log('Screenshot added.');
+            console.log(this.screenshot().getBuffer().toString('base64'));
+        }
     }
 })

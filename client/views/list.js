@@ -16,6 +16,9 @@ Template.vote.viewmodel(function (data) {
         vote: function () {
             return Votes.findOne(this.id());
         },
+        thumbCssClass : function(){
+            return (this.vote().thing().provider_name === 'YouTube') ? 'thumbnailClip youtubeThumbClip' : 'thumbnailClip'
+        },
         thumb: function () {
             var images = this.vote().thing().images,
                 noImage = '/no_image_available.jpg';

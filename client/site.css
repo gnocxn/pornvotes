@@ -80,9 +80,13 @@ ol.videoList > li.videoListEntry .content {
 }
 
 .thumbnailContainer.aspectFourByThreeLetterboxed .thumbnailClip img {
-    top: -19px;
     width: 100%;
 }
+
+.thumbnailContainer.aspectFourByThreeLetterboxed .youtubeThumbClip img{
+    top : -19px !important;
+}
+
 .thumbnailContainer .thumbnailClip img {
     display: block;
     left: 0;
