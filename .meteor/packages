@@ -34,5 +34,7 @@ dburles:collection-helpers
 underscore
 underscorestring:underscore.string
 mizzao:bootboxjs
-nxcong:image-picker
 pierreeric:rxscreenshot
+cafe4it:nightmare
+arillo:flow-router-helpers
+okgrow:analytics

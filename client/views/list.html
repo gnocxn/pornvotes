@@ -11,11 +11,11 @@
 <template name="vote">
     <li class="videoListEntry">
         <div class="header">
-            <h5><span data-bind="text : vote.thing.title"></span></h5>
-            <button class="btn btn-default btn-xs btn-edit-playlist-item" data-bind="click : showModal">
+            <h5><a target="_blank" data-bind="attr : {href : outUrl}, click : clickOutUrl"><span data-bind="text : vote.thing.title"></span></a></h5>
+            <button class="btn btn-default btn-xs btn-edit-playlist-item" data-bind="click : showModal, unless : allowEdit">
                 <i class="fa fa-pencil"></i>
             </button>
-            <button class="btn btn-default btn-xs btn-remove-playlist-item" data-bind="click : removeItem">
+            <button class="btn btn-default btn-xs btn-remove-playlist-item" data-bind="click : removeItem, unless : allowEdit">
                 <i class="fa fa-remove"></i>
             </button>
         </div>
@@ -23,7 +23,9 @@
             <div class="list-container">
                 <div class="thumbnailContainer aspectFourByThreeLetterboxed">
                     <div data-bind="class : thumbCssClass" class="thumbnailClip">
-                        <img data-bind="attr : {src : thumb}">
+                        <a target="_blank" data-bind="attr : {href : outUrl}, click : clickOutUrl">
+                            <img data-bind="attr : {src : thumb}">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -35,9 +37,9 @@
                     <button type="button" class="btn btn-success" data-bind="click : upItem">
                         <i class="fa fa-arrow-up"></i>
                     </button>
-                    <span class="upVote" data-bind="text : vote.upVote"></span>
+                    <span class="upVote" data-bind="text : vote.thing.upVote"></span>
                     <span>/</span>
-                    <span class="downVote" data-bind="text : vote.downVote"></span>
+                    <span class="downVote" data-bind="text : vote.thing.downVote"></span>
                     <button type="button" class="btn btn-danger" data-bind="click : downItem">
                         <i class="fa fa-arrow-down"></i>
                     </button>

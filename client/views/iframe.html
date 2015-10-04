@@ -1,0 +1,11 @@
+<template name="iframe">
+{{#if subsReady 'myUser'}}
+    <div class="row">
+        <div class="col-md-12">
+            {{> list}}
+        </div>
+    </div>
+{{else}}
+    {{> loading}}
+{{/if}}
+</template>

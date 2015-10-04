@@ -1,3 +1,4 @@
+arillo:flow-router-helpers@0.4.5
 autoupdate@1.2.3
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -9,10 +10,11 @@ blaze-tools@1.0.4
 boilerplate-generator@1.0.4
 caching-compiler@1.0.0
 caching-html-compiler@1.0.2
+cafe4it:nightmare@0.0.1
 callback-hook@1.0.4
 check@1.0.6
 coffeescript@1.0.10
-cosmos:browserify@0.7.1
+cosmos:browserify@0.7.4
 dburles:collection-helpers@1.0.3
 ddp@1.2.2
 ddp-client@1.2.1
@@ -25,7 +27,7 @@ ecmascript-collections@0.1.6
 ejson@1.0.7
 es5-shim@4.1.13
 fastclick@1.0.7
-froatsnook:request@2.58.0
+froatsnook:request@2.64.0
 froatsnook:sleep@1.1.0
 gadicohen:headers@0.0.30
 geojson-utils@1.0.4
@@ -43,7 +45,7 @@ livedata@1.0.15
 logging@1.0.8
 manuel:isdev@1.0.0
 manuel:reactivearray@1.0.5
-manuel:viewmodel@1.9.12
+manuel:viewmodel@1.9.13
 meteor@1.1.9
 meteor-base@1.0.1
 meteorhacks:inject-initial@1.0.2
@@ -58,8 +60,8 @@ mquandalle:bower@1.4.1_3
 mswartz:embedly@1.0.0
 natestrauser:font-awesome@4.4.0
 npm-mongo@1.4.39_1
-nxcong:image-picker@0.0.1
 observe-sequence@1.0.7
+okgrow:analytics@0.4.0
 ordered-dict@1.0.4
 ostrio:cookies@1.0.1
 pierreeric:rxscreenshot@0.0.3
@@ -85,3 +87,4 @@ underscorestring:underscore.string@3.2.2
 url@1.0.5
 webapp@1.2.2
 webapp-hashing@1.0.5
+zimme:active-route@2.3.2

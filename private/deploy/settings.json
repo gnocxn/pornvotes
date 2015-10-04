@@ -1,9 +1,17 @@
 {
   "public": {
-
+    "analyticsSettings": {
+      "Segment.io": {
+        "apiKey": "r2tSRyKtJTcWS9QdxIHWoXTOkbLp2Mro"
+      },
+      "Mixpanel": {
+        "token": "8795abcc01ca658d82e81e904db6ef88",
+        "people": false
+      }
+    }
   },
-  "private" : {
-    "EmbedlyApiKey" : "5eab8a18c1e4463db2f993c335b622e1",
-    "Wilson_ratio" : "0.9"
+  "private": {
+    "EmbedlyApiKey": "5eab8a18c1e4463db2f993c335b622e1",
+    "Wilson_ratio": "0.9"
   }
 }

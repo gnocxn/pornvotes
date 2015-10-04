@@ -53,8 +53,6 @@ if (Meteor.isServer) {
                 var vote = {
                     userId: userId,
                     thingId: thingId,
-                    upVote: 0,
-                    downVote: 0,
                     bestScore: 0,
                     badScore: 0
                 }
@@ -70,25 +68,40 @@ if (Meteor.isServer) {
             check(id, String);
             Votes.remove({_id: id});
         },
-        updateVote: function (id, type) {
-            var vote = Votes.findOne({_id: id});
-            if (vote) {
-                var up = vote.upVote, down = vote.downVote;
-                if (type === 'UP')
-                    ++up;
-                if (type === 'DOWN')
-                    ++down;
-                var scores = calculateScores(up, (up + down));
+        updateVote: function (id, type, clientIp) {
+            var clientIp = clientIp || headers.methodClientIP(this);
+            var isExists = AnonymousVotes.findOne({clientIp: clientIp, voteId: id});
+            if (isExists && isExists.type === type) return false;
+            if ((isExists && isExists.type !== type) || !isExists) {
+                var vote = Votes.findOne({_id: id});
+                if (vote) {
+                    var updatedAt = new Date();
+                    AnonymousVotes.upsert({voteId : id, clientIp: clientIp},{
+                        $set : {
+                            type : type,
+                            voteId : id,
+                            clientIp : clientIp,
+                            updatedAt : updatedAt
+                        }
+                    });
+                    var _anoVotes = AnonymousVotes.find({voteId: id}).fetch(),
+                        up = _.where(_anoVotes, {type: 'UP'}).length || 0,
+                        down = _.where(_anoVotes, {type: 'DOWN'}).length || 0;
+                    if (type === 'UP')
+                        ++up;
+                    if (type === 'DOWN')
+                        ++down;
+                    var scores = calculateScores(up, (up + down));
 
-                Votes.update({_id: vote._id}, {
-                    $set: {
-                        upVote: up,
-                        downVote: down,
-                        bestScore: scores[0],
-                        badScore: scores[1]
-                    }
-                });
-                return true;
+                    Votes.update({_id: vote._id}, {
+                        $set: {
+                            bestScore: scores[0],
+                            badScore: scores[1],
+                            updateAt : updatedAt
+                        }
+                    });
+                    return true;
+                }
             }
             return false;
         },
@@ -121,6 +134,10 @@ if (Meteor.isServer) {
         return rank;
     }
 
+    Meteor.publish('peopleByListId', function (listId) {
+        return People.find({listId: listId});
+    })
+
     Meteor.publish('votesByUser', function (userId) {
         return Votes.find({userId: userId});
     });
@@ -132,6 +149,10 @@ if (Meteor.isServer) {
     Meteor.publish('thingsByVotes', function (thingIds) {
         return Things.find({_id: {$in: thingIds}});
     });
+
+    Meteor.publish('voteTypesByVote',function(voteId){
+        return AnonymousVotes.find({voteId : voteId});
+    })
 
     Meteor.publish('thingById', function (id) {
         return Things.find({_id: id});
